@@ -1,0 +1,33 @@
+<form [formGroup]="registrationForm" (submit)="submitForm()">
+
+  <label>
+    Postcode
+  </label>
+  <input type="text" formControlName="postcode"/><br/>
+
+  <label>
+    Huisnummer
+  </label>
+  <input type="text" formControlName="houseNumber"/><br/>
+
+  <label>
+    Straat
+  </label>
+  <input type="text" formControlName="street" disabled="true"/><br/>
+
+  <label>
+    Woonplaats
+  </label>
+  <input type="text" formControlName="city" disabled="true"/><br/>
+
+  <label>
+    Provincie
+  </label>
+  <input type="text" formControlName="province" disabled="true"/><br/>
+
+  <input type="submit" value="submit form"/>
+</form>
+
+{{ registrationForm.valid }}
+
+{{ registrationForm.value | json }}
