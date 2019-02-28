@@ -1,0 +1,16 @@
+label {
+    width: 15%;
+    float: left;
+    margin-left: 5%;
+}
+
+input[type=text] {
+    width: 20%;
+    margin-right: 5%;
+    margin-bottom: 3%;
+}
+
+input[type=submit] {
+    margin-left: 5%;
+    margin-bottom: 10%;
+}

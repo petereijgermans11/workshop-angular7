@@ -1,0 +1,73 @@
+<div class="form">
+
+    <form [formGroup]="formGroup" >
+        <div class="personal-info">
+            <label>
+                Username:
+                <input type="text" formControlName="username"/>
+            </label>
+            <label>
+                First name:
+                <input type="text" formControlName="firstName"/>
+            </label>
+
+            <label>
+                Last name:
+                <input type="text" formControlName="lastName"/>
+            </label>
+
+            <label>
+                Email:
+                <input type="email" formControlName="email"/>
+            </label>
+
+            <label>
+                Phone number:
+                <input type="phone" formControlName="phoneNumber"/>
+            </label>
+        </div>
+
+        <div>
+            Select gender:
+            <input type="radio" [value]="Gender.MALE" formControlName="gender"/>Male
+            <input type="radio" [value]="Gender.FEMALE" formControlName="gender"/>Female
+            <input type="radio" [value]="Gender.OTHER" formControlName="gender"/>Other
+        </div>
+
+        <div>
+            Select Developer level
+            <select formControlName="skillLevel">
+                <option *ngFor="let skillLevel of skillLevels" [value]="skillLevel">
+                    {{skillLevel}}
+                </option>
+            </select>
+        </div>
+
+        <div formArrayName="addresses">
+            <h3>Address(es)</h3> <button type="button" (click)="addAddress()">Add Address</button>
+            <div *ngFor="let address of formGroup.get('addresses').controls; let i = index">
+                <label>
+                 Address {{i}}:
+                </label>
+                <div [formGroupName]="i">
+                    <label>
+                        Address line:
+                        <input formControlName="line" type="text"/>
+                    </label>
+                    <label>
+                        Country:
+                        <input formControlName="country" type="text"/>
+                    </label>
+                </div>
+                <button type="button" (click)="deleteAddress(i)">Delete</button>
+            </div>
+        </div>
+
+        <input type="submit" value="submit"/>
+        
+    </form>
+    
+    <p>Form Value: {{ formGroup.value | json }}</p>
+      
+    <p>Form Status: {{ formGroup.status }}</p>
+</div>
