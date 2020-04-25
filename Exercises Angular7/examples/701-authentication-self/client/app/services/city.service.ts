@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import {City} from "../model/city.model";
 import 'rxjs/add/operator/map';
 
@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 export class CityService {
 	private cities: City[];
 
-	constructor(private _http: Http) {
+	constructor(private _http: HttpClient) {
 	}
 
 	// retourneer alle cities
